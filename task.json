@@ -1,16 +1,23 @@
 [
     {
         "date_created": "2024-01-10",
-        "description": "egggggg",
-        "due_date": "3000-02-02",
-        "name": "eggs",
+        "description": "this task is a test to demonstrate what a task may look like",
+        "due_date": "2025-03-03",
+        "name": "Test task",
         "status": false
     },
     {
         "date_created": "2024-01-10",
-        "description": "ergergerg",
-        "due_date": "2026-05-05",
-        "name": "rthtrhrth",
+        "description": "Buy ingredients and make 684 burgers",
+        "due_date": "2024-01-10",
+        "name": "Cook Dinner",
         "status": true
+    },
+    {
+        "date_created": "2024-01-10",
+        "description": "Easily demonstrate delete function by deleting this task",
+        "due_date": "9999-12-10",
+        "name": "Delete me!",
+        "status": false
     }
 ]

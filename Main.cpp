@@ -162,15 +162,28 @@ std::tm GetDueDate()
         dueDate.tm_year = GetUserInt() - 1900;
     } while (dueDate.tm_year < currentDate.tm_year || dueDate.tm_year>9999);
 
+    //we must check if user has entered the current year to catch if they try enter a due date in the past, same for month below
+    bool isCurrentYear{ false };
+    if (dueDate.tm_year == currentDate.tm_year)
+    {
+        isCurrentYear = true;
+    }
+
     do {
         std::cout << "Enter the due date.\n" << "Month due (MM format): ";
         dueDate.tm_mon = GetUserInt() - 1;
-    } while (dueDate.tm_mon <= -1 || dueDate.tm_mon > 11);
+    } while (dueDate.tm_mon <= -1 || (isCurrentYear && dueDate.tm_mon < currentDate.tm_mon) || dueDate.tm_mon > 11);
+
+    bool isCurrentMonth{ false };
+    if ((isCurrentYear) && (dueDate.tm_mon == currentDate.tm_mon))
+    {
+        isCurrentMonth = true;
+    }
 
     do {
         std::cout << "Enter the due date.\n" << "Day due (DD format):  ";
         dueDate.tm_mday = GetUserInt();
-    } while (dueDate.tm_mday < 1 || dueDate.tm_mday>31);
+    } while (dueDate.tm_mday < 1 || (isCurrentMonth && dueDate.tm_mday < currentDate.tm_mday) || dueDate.tm_mday>31);
 
     return dueDate;
 
